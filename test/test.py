@@ -37,25 +37,25 @@ async def test_full_adder(dut):
 
     # Set the input values you want to test
     for a,b,c,e_sum,e_cout in test_cases:
-    dut.ui_in.value = (c <<2)|(b<<1)|a
+       dut.ui_in.value = (c <<2)|(b<<1)|a
    # dut.uio_in.value = 30
 
     # Wait for one clock cycle to see the output values
-    await Timer(20 , unit="ns")
+       await Timer(20 , unit="ns")
     #safe conversion
-    try:
-        output_val = int( dut.uo_out.value)
-        actual_sum =output_val &1
-        actual_cout =(output_val >> 1) &1
+       try:
+         output_val = int( dut.uo_out.value)
+         actual_sum =output_val &1
+         actual_cout =(output_val >> 1) &1
 
     # The following assersion is just an example of how to check the output values.
     # Change it to match the actual expected output of your module:
-    assert actual_sum  == e_sum ,f"Sum Error: A={a} B={b} C ={c}"
-    assert actual_out  == e_sum ,f"Cout Error: A={a} B={b} C ={c}"
+        assert actual_sum  == e_sum ,f"Sum Error: A={a} B={b} C ={c}"
+        assert actual_out  == e_sum ,f"Cout Error: A={a} B={b} C ={c}"
 
-dut._log.info(f"Input: {a},{b},{c} -> Sum: {actual_sum} ,Cout: {actual_cout} [PASS]")
+       dut._log.info(f"Input: {a},{b},{c} -> Sum: {actual_sum} ,Cout: {actual_cout} [PASS]")
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
-except ValueError: 
-   dut.log.error(f"Logi error: uo_out is {str(dut.uo_out.value)}")
-   raise
+     except ValueError: 
+        dut.log.error(f"Logi error: uo_out is {str(dut.uo_out.value)}")
+        raise
