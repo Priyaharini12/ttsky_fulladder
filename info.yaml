@@ -3,7 +3,7 @@ project:
   title:        "Full Adder"      # Project title
   author:       "Priyaharini"      # Your name
   discord:      "A Full adder project"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "Full Adder"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
