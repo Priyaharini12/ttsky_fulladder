@@ -8,12 +8,12 @@ module tb ();
 
   // Dump the signals to a FST file. You can view it with gtkwave or surfer.
   initial begin
-    $dumpfile("tb.fst");
+     $dumpfile("tb.vcd");
     $dumpvars(0, tb);
     #1;
   end
 
-  // Wire up the inputs and outputs:
+  // Wire up the inputs and outputs: standard signal declaration
   reg clk;
   reg rst_n;
   reg ena;
@@ -22,13 +22,14 @@ module tb ();
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
+
 `ifdef GL_TEST
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
 `endif
 
   // Replace tt_um_example with your module name:
-  tt_um_example user_project (
+  tt_um_full_adder user_project (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
