@@ -22,7 +22,7 @@ module tt_um_full_adder (
     wire sum;
     wire cout;
  //Full adder implementation
-    assign sum =a ^ b ^ c
+    assign sum =a ^ b ^ c;
     assign cout = (a&b)|(a&c)|(b&c);
 // output mapping
     assign uo_out[0] = sum;
